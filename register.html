@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | STACKLY Charity &amp; Fundraising</title>
+  <meta name="description" content="Register for a free STACKLY account to start donating, volunteering, tracking community milestones, or managing charity campaigns.">
+  <link rel="icon" type="image/webp" href="assets/logo_gold.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/data.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body class="auth-page">
+  <div class="auth">
+    <!-- Left Art Section -->
+    <div class="auth-art">
+      <img class="auth-bg-img" src="assets/education.webp" alt="STACKLY Education and Charity">
+      <div>
+        <a href="index.html" class="logo" style="display:inline-block;margin-bottom:24px;">
+          <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img">
+        </a>
+        <span class="eyebrow" style="color:var(--lime);display:block;margin-bottom:8px;">✦ START YOUR GIVING JOURNEY</span>
+        <h1>Be the reason<br>someone smiles today.</h1>
+        <p>Whether funding clean water wells or packing meals for emergency relief, every contribution makes an enduring impact.</p>
+
+        <div class="auth-feature-list">
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">🎓</div>
+            <div>
+              <strong>Education for Every Child</strong>
+              <span>Support school kits, classroom essentials, and learning resources.</span>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">💧</div>
+            <div>
+              <strong>Clean Drinking Water Access</strong>
+              <span>Equip rural communities with sustainable filtration systems.</span>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">🍲</div>
+            <div>
+              <strong>Community Hunger Relief</strong>
+              <span>Fund nutritious meal distribution to children and vulnerable families.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:13px;color:rgba(255,255,255,0.75);margin-top:24px;">
+        ✦ Over 25,000+ donors and 8,500+ registered volunteers trust STACKLY.
+      </div>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="auth-main">
+      <div class="auth-card-box">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:12px;">
+          <a href="index.html" class="auth-back" style="margin-bottom:0;">
+            ← Return to Home
+          </a>
+           <a href="index.html" class="logo" style="display:inline-block;margin-bottom:24px;">
+          <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img" style="height:32px;width:auto;"></a>
+        </div>
+
+        <h1>Create Account</h1>
+        <p class="auth-sub">Join the STACKLY changemaker community in under 2 minutes.</p>
+
+        <form data-form="register" novalidate>
+          <label style="margin-bottom:8px;">Select Account Type</label>
+          <div class="role-cards" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <label class="role-card is-selected">
+              <input type="radio" name="role" value="donor" checked style="display:none;">
+              <div style="font-size:24px;margin-bottom:4px;">🌱</div>
+              <strong style="font-size:14px;color:var(--ink);display:block;">Donor &amp; Volunteer</strong>
+              <small style="font-size:11px;color:var(--muted);display:block;">Personal Giving</small>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="admin" style="display:none;">
+              <div style="font-size:24px;margin-bottom:4px;">🏛️</div>
+              <strong style="font-size:14px;color:var(--ink);display:block;">Charity Partner</strong>
+              <small style="font-size:11px;color:var(--muted);display:block;">NGO / Campaign Admin</small>
+            </label>
+          </div>
+
+          <label>
+            Full Name
+            <input name="name" type="text" placeholder="e.g. Rohan Mehta" required data-type="name" autocomplete="name">
+            <span class="field-error"></span>
+          </label>
+
+          <label>
+            Email Address
+            <input name="email" type="email" placeholder="rohan@example.com" required autocomplete="email">
+            <span class="field-error"></span>
+          </label>
+
+          <label>
+            Phone Number (Digits only)
+            <input name="phone" type="tel" placeholder="e.g. 9876543210" required data-type="number" autocomplete="tel">
+            <span class="field-error"></span>
+          </label>
+
+          <div class="two-fields">
+            <label>
+              Password
+              <div class="password-wrap">
+                <input name="password" type="password" placeholder="Min 6 chars" required autocomplete="new-password">
+                <button type="button" class="password-toggle" aria-label="Toggle password visibility">Show</button>
+              </div>
+              <span class="field-error"></span>
+            </label>
+            <label>
+              Confirm Password
+              <div class="password-wrap">
+                <input name="confirm" type="password" placeholder="Re-enter" required autocomplete="new-password">
+                <button type="button" class="password-toggle" aria-label="Toggle password visibility">Show</button>
+              </div>
+              <span class="field-error"></span>
+            </label>
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="terms" required checked>
+            <span style="font-size:13px;color:var(--muted);font-weight:normal;">I agree to the STACKLY <a href="404.html" style="color:var(--green);text-decoration:underline;">Donation Policy</a> and <a href="404.html" style="color:var(--green);text-decoration:underline;">Transparency Charter</a>.</span>
+          </label>
+
+          <button class="btn" style="width:100%;margin-top:6px;min-height:48px;font-size:15px;">
+            Create Free Account →
+          </button>
+
+          <span class="form-result" aria-live="polite" style="display:block;margin-top:14px;font-size:13px;font-weight:600;text-align:center;min-height:18px;"></span>
+        </form>
+
+        <div style="margin:20px 0 16px;text-align:center;position:relative;">
+          <hr style="border:0;border-top:1px solid var(--line);">
+          <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:white;padding:0 12px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.05em;text-transform:uppercase;">or register with</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+          <a class="btn outline" href="404.html" style="font-size:13px;padding:9px 12px;min-height:40px;">
+            <span style="font-weight:700;color:#ea4335;margin-right:4px;">G</span> Google
+          </a>
+          <a class="btn outline" href="404.html" style="font-size:13px;padding:9px 12px;min-height:40px;">
+            <span style="font-weight:700;color:#1877f2;margin-right:4px;">f</span> Facebook
+          </a>
+        </div>
+
+        <p style="text-align:center;font-size:13px;color:var(--muted);margin:0;">
+          Already have an account? <a href="signin.html" style="color:var(--green);font-weight:700;text-decoration:underline;">Sign In here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

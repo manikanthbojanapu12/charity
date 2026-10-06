@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY | Charity Admin Dashboard</title>
+  <meta name="description" content="Charity Admin Dashboard — STACKLY connects people with charity campaigns, volunteering, and community impact.">
+  <meta property="og:title" content="STACKLY | Charity Admin Dashboard">
+  <meta property="og:description" content="Charity Admin Dashboard — STACKLY connects people with charity campaigns, volunteering, and community impact.">
+  <link rel="icon" type="image/webp" href="assets/logo_gold.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <main class="dash" data-admin="true">
+    <aside class="sidebar" id="dashboard-sidebar">
+      <a class="logo" href="index.html" aria-label="STACKLY Home">
+        <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img">
+      </a>
+      <div class="side-links">
+        <button type="button" data-section="Overview" class="active" aria-current="page">Overview</button>
+        <button type="button" data-section="Campaigns">Campaigns</button>
+        <button type="button" data-section="Donations">Donations</button>
+        <button type="button" data-section="Donors">Donors</button>
+        <button type="button" data-section="Events">Events</button>
+        <button type="button" data-section="Volunteers">Volunteers</button>
+        <button type="button" data-section="Analytics">Analytics</button>
+        <button type="button" data-section="Reports">Reports</button>
+        <button type="button" data-section="Messages">Messages</button>
+        <button type="button" data-section="Settings">Settings</button>
+      </div>
+      <div class="side-bottom">
+        <a href="index.html">← Back to website</a>
+        <button type="button" id="logout">Logout</button>
+      </div>
+    </aside>
+
+    <div class="dash-main">
+      <div class="dash-top">
+        <button class="dashboard-menu" type="button" aria-label="Open dashboard navigation" aria-controls="dashboard-sidebar" aria-expanded="false">☰</button>
+        <div>
+          <span class="eyebrow">✦ Charity administration</span>
+          <h1 id="dash-heading">Welcome, Admin.</h1>
+          <p id="session-email"></p>
+        </div>
+        <button type="button" class="notification" data-section="Messages" aria-label="View notifications">✉</button>
+      </div>
+      <p class="demo-note">Frontend demonstration · Sample data · No real payments or authenticated account</p>
+      <div id="dash-content"></div>
+    </div>
+    <div class="dashboard-overlay" aria-hidden="true"></div>
+  </main>
+</body>
+</html>

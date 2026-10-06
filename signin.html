@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | STACKLY Charity &amp; Fundraising Portal</title>
+  <meta name="description" content="Sign in to your STACKLY donor or charity admin portal to track donations, monitor impact, and support grassroots campaigns.">
+  <link rel="icon" type="image/webp" href="assets/logo_gold.webp">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/data.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body class="auth-page">
+  <div class="auth">
+    <!-- Left Art Section -->
+    <div class="auth-art">
+      <img class="auth-bg-img" src="assets/food.webp" alt="STACKLY Charity Impact">
+      <div>
+        <a href="index.html" class="logo" style="display:inline-block;margin-bottom:24px;">
+          <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img">
+        </a>
+        <span class="eyebrow" style="color:var(--lime);display:block;margin-bottom:8px;">✦ STACKLY COMMUNITY PORTAL</span>
+        <h1>Small actions.<br>Real community impact.</h1>
+        <p>Join thousands of everyday changemakers funding education, clean water, hunger relief, and healthcare across India.</p>
+
+        <div class="auth-feature-list">
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">✓</div>
+            <div>
+              <strong>100% Transparent Giving</strong>
+              <span>Direct field updates and milestone tracking for every rupee donated.</span>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">★</div>
+            <div>
+              <strong>Verified Grassroots Partners</strong>
+              <span>All campaigns are thoroughly audited for maximum local impact.</span>
+            </div>
+          </div>
+          <div class="auth-feature-item">
+            <div class="auth-feature-icon">📄</div>
+            <div>
+              <strong>Instant Digital Receipts</strong>
+              <span>Download sample receipts, tax summaries, and community reports anytime.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:13px;color:rgba(255,255,255,0.75);margin-top:24px;">
+        ✦ Over ₹4.8 Crores raised for grassroots initiatives nationwide.
+      </div>
+    </div>
+
+    <!-- Right Form Section -->
+    <div class="auth-main">
+      <div class="auth-card-box">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:12px;">
+          <a href="index.html" class="auth-back" style="margin-bottom:0;">
+            ← Return to Home
+          </a>
+          <a href="index.html" class="logo" style="display:inline-block;margin-bottom:24px;">
+          <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img" style="height:32px;width:auto;"></a>
+        </div>
+
+        <h1>Sign In</h1>
+        <p class="auth-sub">Access your STACKLY donor dashboard or administrative portal.</p>
+
+        <form data-form="signin" novalidate>
+          <label style="margin-bottom:8px;">Select Your Portal Role</label>
+          <div class="role-cards" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+            <label class="role-card is-selected">
+              <input type="radio" name="role" value="donor" checked style="display:none;">
+              <div style="font-size:24px;margin-bottom:4px;">🌱</div>
+              <strong style="font-size:14px;color:var(--ink);display:block;">Donor Portal</strong>
+              <small style="font-size:11px;color:var(--muted);display:block;">Supporters &amp; Volunteers</small>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="admin" style="display:none;">
+              <div style="font-size:24px;margin-bottom:4px;">📊</div>
+              <strong style="font-size:14px;color:var(--ink);display:block;">Charity Admin</strong>
+              <small style="font-size:11px;color:var(--muted);display:block;">Organizers &amp; Partners</small>
+            </label>
+          </div>
+
+          <label>
+            Full Name
+            <input name="name" type="text" placeholder="e.g. Priya Sharma" required data-type="name" autocomplete="name">
+            <span class="field-error"></span>
+          </label>
+
+          <label>
+            Email Address
+            <input name="email" type="email" placeholder="name@example.com" required autocomplete="email">
+            <span class="field-error"></span>
+          </label>
+
+          <label>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span>Password</span>
+              <a href="404.html" style="font-size:12px;color:var(--green);font-weight:600;">Forgot password?</a>
+            </div>
+            <div class="password-wrap">
+              <input name="password" type="password" placeholder="Enter your password (min 6 characters)" required autocomplete="current-password">
+              <button type="button" class="password-toggle" aria-label="Toggle password visibility">Show</button>
+            </div>
+            <span class="field-error"></span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="remember" checked>
+            <span style="font-size:13px;color:var(--muted);font-weight:normal;">Remember my demo session on this device</span>
+          </label>
+
+          <button class="btn" style="width:100%;margin-top:6px;min-height:48px;font-size:15px;">
+            Sign In to Dashboard →
+          </button>
+
+          <span class="form-result" aria-live="polite" style="display:block;margin-top:14px;font-size:13px;font-weight:600;text-align:center;min-height:18px;"></span>
+        </form>
+
+        <div style="margin:20px 0 16px;text-align:center;position:relative;">
+          <hr style="border:0;border-top:1px solid var(--line);">
+          <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:white;padding:0 12px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:0.05em;text-transform:uppercase;">or continue with</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+          <a class="btn outline" href="404.html" style="font-size:13px;padding:9px 12px;min-height:40px;">
+            <span style="font-weight:700;color:#ea4335;margin-right:4px;">G</span> Google
+          </a>
+          <a class="btn outline" href="404.html" style="font-size:13px;padding:9px 12px;min-height:40px;">
+            <span style="font-weight:700;color:#1877f2;margin-right:4px;">f</span> Facebook
+          </a>
+        </div>
+
+        <p style="text-align:center;font-size:13px;color:var(--muted);margin:0;">
+          New to STACKLY? <a href="register.html" style="color:var(--green);font-weight:700;text-decoration:underline;">Create a free account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
