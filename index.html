@@ -80,11 +80,18 @@
                                 aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"><span style="width:73%"></span>
                             </div>
                             <div class="funding"><span>Goal: ₹12,00,000</span><span>1,248 supporters</span></div>
-                            <div class="card-actions">
-    <button class="btn" data-donate="0">Donate Now</button>
-    <button class="table-button" data-details="0">View Campaign</button>
+   <div class="card-actions">
+    <button class="btn" data-donate="0" type="button">Donate Now</button>
+    <button class="table-button" data-details="0" type="button">View Campaign</button>
 </div>
-                        </div>
+
+<script>
+document.querySelectorAll('.card-actions button').forEach(button => {
+    button.addEventListener('click', function () {
+        window.location.href = '404.html';
+    });
+});
+</script>                 </div>
                     </article>
                     <article class="card" data-category="Clean Water"
                         data-search="Clean Water. Brighter Futures. Rajasthan">
@@ -100,11 +107,18 @@
                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span style="width:75%"></span>
                             </div>
                             <div class="funding"><span>Goal: ₹18,00,000</span><span>1,785 supporters</span></div>
-                            <div class="card-actions">
-    <button class="btn" data-donate="1">Donate Now</button>
-    <button class="table-button" data-details="1">View Campaign</button>
+    <div class="card-actions">
+    <button class="btn" data-donate="0" type="button">Donate Now</button>
+    <button class="table-button" data-details="0" type="button">View Campaign</button>
 </div>
-                        </div>
+
+<script>
+document.querySelectorAll('.card-actions button').forEach(button => {
+    button.addEventListener('click', function () {
+        window.location.href = '404.html';
+    });
+});
+</script>               </div>
                     </article>
                     <article class="card" data-category="Hunger"
                         data-search="A Meal Today. Hope for Tomorrow. Bengaluru">
@@ -120,10 +134,18 @@
                                 aria-label="A Meal Today. Hope for Tomorrow. funding" aria-valuenow="84"
                                 aria-valuemin="0" aria-valuemax="100"><span style="width:84%"></span></div>
                             <div class="funding"><span>Goal: ₹8,00,000</span><span>965 supporters</span></div>
-                            <div class="card-actions">
-    <button class="btn" data-donate="2">Donate Now</button>
-    <button class="table-button" data-details="2">View Campaign</button>
+   <div class="card-actions">
+    <button class="btn" data-donate="0" type="button">Donate Now</button>
+    <button class="table-button" data-details="0" type="button">View Campaign</button>
 </div>
+
+<script>
+document.querySelectorAll('.card-actions button').forEach(button => {
+    button.addEventListener('click', function () {
+        window.location.href = '404.html';
+    });
+});
+</script>
                         </div>
                     </article>
                 </div>
@@ -132,7 +154,9 @@
                         <div class="urgent-label">TIME-SENSITIVE SUPPORT</div>
                         <h3>Help families find their footing after the floods.</h3>
                         <p>Essential supplies and community support for families in Assam.</p>
-                    </div><button class="btn" data-donate="4">Support relief efforts</button>
+                    </div><<button class="btn" data-donate="4" type="button" onclick="window.location.href='404.html'">
+    Support relief efforts
+</button>
                 </div>
             </div>
         </section>
@@ -349,8 +373,13 @@
                             <h3>Community Charity Walkathon</h3>
                             <p>Walk five kilometres alongside people who believe every small step matters.</p>
                             <div class="meta">Cubbon Park, Bengaluru</div>
-                            <div class="card-actions"><button class="btn outline" data-event="0">Register for
-                                    event</button><small>320 joining</small></div>
+                            <div class="card-actions">
+    <button class="btn outline" data-event="1" type="button"
+        onclick="window.location.href='404.html'">
+        Register for event
+    </button>
+    <small>380 joining</small>
+</div>
                         </div>
                     </article>
                     <article class="card" data-category="Community drive">
@@ -361,8 +390,13 @@
                             <h3>Community Food Drive</h3>
                             <p>Pack pantry staples and help local teams deliver food supplies.</p>
                             <div class="meta">HSR Community Centre</div>
-                            <div class="card-actions"><button class="btn outline" data-event="1">Register for
-                                    event</button><small>180 joining</small></div>
+                           <div class="card-actions">
+    <button class="btn outline" data-event="1" type="button"
+        onclick="window.location.href='404.html'">
+        Register for event
+    </button>
+    <small>180 joining</small>
+</div>
                         </div>
                     </article>
                     <article class="card" data-category="Environment">
@@ -373,8 +407,13 @@
                             <h3>Tree Plantation Day</h3>
                             <p>Plant native saplings and learn how to help them thrive.</p>
                             <div class="meta">Jakkur Lake, Bengaluru</div>
-                            <div class="card-actions"><button class="btn outline" data-event="2">Register for
-                                    event</button><small>210 joining</small></div>
+                           <div class="card-actions">
+    <button class="btn outline" data-event="1" type="button"
+        onclick="window.location.href='404.html'">
+        Register for event
+    </button>
+    <small>210 joining</small>
+</div>
                         </div>
                     </article>
                 </div>
@@ -434,8 +473,9 @@
                         <p>Impact stories, community updates and ways to get involved.</p>
                     </div>
                     <form data-form="newsletter" novalidate><label>Your email address<input type="email" name="email"
-                                placeholder="you@example.com" required></label><button class="btn light">Join our
-                            community</button><span class="form-result" aria-live="polite"></span></form>
+                                placeholder="you@example.com" required></label><button class="btn light" type="button" onclick="window.location.href='404.html'">
+    Join our community
+</button><span class="form-result" aria-live="polite"></span></form>
                 </div>
             </div>
         </section>
