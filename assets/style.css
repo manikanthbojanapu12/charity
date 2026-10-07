@@ -30,7 +30,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -40,7 +40,7 @@ body {
   color: var(--ink);
   font: 16px/1.65 'DM Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   background: #fff;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   position: relative;
 }
@@ -2963,18 +2963,58 @@ td {
   }
   .dash-main {
     margin-left: 0;
-    padding: 20px 16px 40px;
+    padding: 0 16px 40px;
   }
   .dash-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(244, 246, 240, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 18px rgba(18, 57, 46, 0.08);
+    padding: 12px 16px;
+    margin: 0 -16px 20px -16px;
+    display: flex;
     align-items: center;
-    padding-left: 0;
-    gap: 14px;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: nowrap;
   }
-  .dash-top > div:first-child {
+  .dash-top > div {
+    flex: 1 1 auto;
     min-width: 0;
+    overflow: hidden;
+  }
+  .dash-top .eyebrow {
+    display: block;
+    font-size: 10.5px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dash-top h1 {
+    font-size: clamp(17px, 4.5vw, 22px);
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dash-top p {
+    font-size: 11.5px;
+    margin: 2px 0 0;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .dash-top .notification {
     margin-left: auto;
+    flex-shrink: 0;
   }
   body.dashboard-menu-open {
     overflow: hidden;
@@ -3083,6 +3123,14 @@ td {
   .card-404 {
     padding: 34px 18px;
   }
+  .dash-main {
+    padding: 0 14px 35px;
+  }
+  .dash-top {
+    margin: 0 -14px 18px -14px;
+    padding: 10px 14px;
+    gap: 10px;
+  }
 }
 
 /* Compact Smartphones (320px - 360px) */
@@ -3142,6 +3190,24 @@ td {
   }
   .amounts button {
     flex: 1 1 100%;
+  }
+  .dash-main {
+    padding: 0 12px 30px;
+  }
+  .dash-top {
+    margin: 0 -12px 16px -12px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .dash-top .dashboard-menu {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  .dash-top .notification {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
   }
 }
 
