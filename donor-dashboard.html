@@ -9,16 +9,19 @@
   <meta property="og:description" content="Donor Dashboard — STACKLY connects people with charity campaigns, volunteering, and community impact.">
   <link rel="icon" type="image/webp" href="assets/logo_gold.webp">
   <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/data.js" defer></script>
+  <script src="assets/data.js?v=20261007" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="assets/main.js" defer></script>
+  <script src="assets/main.js?v=20261007" defer></script>
 </head>
 <body>
   <main class="dash" data-admin="false">
     <aside class="sidebar" id="dashboard-sidebar">
-      <a class="logo" href="index.html" aria-label="STACKLY Home">
-        <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img">
-      </a>
+      <div class="sidebar-head">
+        <a class="logo" href="index.html" aria-label="STACKLY Home">
+          <img src="assets/logo_gold.webp" alt="STACKLY" class="logo-img">
+        </a>
+        <button type="button" class="dashboard-sidebar-close" aria-label="Close dashboard menu">×</button>
+      </div>
       <div class="side-links">
         <button type="button" data-section="Overview" class="active" aria-current="page">Overview</button>
         <button type="button" data-section="My Donations">My Donations</button>

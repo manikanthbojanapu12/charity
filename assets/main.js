@@ -64,7 +64,7 @@ function table(h, r) {
 
 function dt() {
   return table(admin ? ['ID', 'Donor', 'Campaign', 'Amount', 'Date', 'Status', 'Receipt'] : ['ID', 'Campaign', 'Date', 'Amount', 'Status', 'Receipt'], donations.map((d, i) => {
-    let row = [d[0], d[1], d[2], money(d[3]), `<span class="status">${d[4]}</span>`, `<a class="table-button" href="404.html" data-receipt="${i}">View receipt</a>`];
+    let row = [d[0], d[1], d[2], money(d[3]), `<span class="status">${d[4]}</span>`, `<button type="button" class="table-button" data-dashboard-action data-receipt="${i}">View receipt</button>`];
     if (admin) row = [d[0], ['Ananya Rao', 'Rohan Mehta', 'Priya Shah'][i % 3], d[1], money(d[3]), d[2], row[4], row[5]];
     return row;
   }));
@@ -109,8 +109,8 @@ function dash(s) {
           <div class="funding" style="color:white;margin-bottom:8px;"><strong>₹8,76,000 raised</strong><span>Goal: ₹12,00,000 (73%)</span></div>
           <div class="progress" style="background:rgba(255,255,255,0.25);margin-bottom:16px;"><span style="width:73%;background:var(--lime);"></span></div>
           <div class="button-row" style="margin-top:0;">
-            <a class="btn light" href="404.html" data-donate="0">Support This Campaign ♡</a>
-            <a class="btn outline" href="404.html" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.4);">View All Causes →</a>
+            <button type="button" class="btn light" data-dashboard-action data-donate="0">Support This Campaign ♡</button>
+            <button type="button" class="btn outline" data-dashboard-action data-section="Campaigns" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.4);">View All Causes →</button>
           </div>
         </div>
         <div class="dash-banner-img">
@@ -139,7 +139,7 @@ function dash(s) {
                 <p>${c[8]}</p>
                 <div class="funding" style="font-size:12px;"><strong>${money(c[3])}</strong><span>Goal ${money(c[4])}</span></div>
                 <div class="progress"><span style="width:${Math.round(c[3]/c[4]*100)}%"></span></div>
-                <a class="btn outline" href="404.html" data-donate="${i}" style="width:100%;margin-top:10px;text-align:center;">Support Cause</a>
+                <button type="button" class="btn outline" data-dashboard-action data-donate="${i}" style="width:100%;margin-top:10px;text-align:center;">Support Cause</button>
               </div>
             </div>
           `).join('')}
@@ -187,7 +187,7 @@ function dash(s) {
           </div>
         </div>
         <div style="margin-top:20px;">
-          <a class="btn outline" href="404.html" data-report="Impact Summary">Download impact summary</a>
+          <button type="button" class="btn outline" data-dashboard-action data-report="Impact Summary">Download impact summary</button>
         </div>
       </div>
     `;
@@ -199,7 +199,7 @@ function dash(s) {
       <div class="panel">
         <h3>${admin ? 'Active Campaign Administration' : 'Active Grassroots Campaigns'}</h3>
         <div class="chartbox" style="height:220px;margin-bottom:20px;"><canvas id="chart-0" role="img" aria-label="Campaign budget bar chart"></canvas></div>
-        ${table(admin ? ['ID', 'Campaign', 'Cause', 'Goal', 'Raised', 'Progress', 'Donors', 'Status', 'Start', 'End'] : ['Campaign', 'Cause', 'Raised', 'Goal', 'Progress', 'Action'], campaigns.map((c, i) => admin ? ['CMP-10' + i, c[0], c[1], money(c[4]), money(c[3]), Math.round(c[3] / c[4] * 100) + '%', c[5], `<a class="table-button" href="404.html" data-status="${i}">${i === 7 ? 'Nearly Funded' : 'Active'}</a>`, '01 Sep 2026', '30 Nov 2026'] : [c[0], c[1], money(c[3]), money(c[4]), Math.round(c[3] / c[4] * 100) + '%', `<a class="btn outline" href="404.html" data-donate="${i}">Donate</a>`]))}
+        ${table(admin ? ['ID', 'Campaign', 'Cause', 'Goal', 'Raised', 'Progress', 'Donors', 'Status', 'Start', 'End'] : ['Campaign', 'Cause', 'Raised', 'Goal', 'Progress', 'Action'], campaigns.map((c, i) => admin ? ['CMP-10' + i, c[0], c[1], money(c[4]), money(c[3]), Math.round(c[3] / c[4] * 100) + '%', c[5], `<button type="button" class="table-button" data-dashboard-action data-clause-status="${i}">${i === 7 ? 'Nearly Funded' : 'Active'}</button>`, '01 Sep 2026', '30 Nov 2026'] : [c[0], c[1], money(c[3]), money(c[4]), Math.round(c[3] / c[4] * 100) + '%', `<button type="button" class="btn outline" data-dashboard-action data-donate="${i}">Donate</button>`]))}
       </div>
     `;
     return campaignCards;
@@ -210,11 +210,11 @@ function dash(s) {
   
   if (s === 'Events') {
     const eventChart = '<div class="chartbox" style="height:220px;margin-bottom:20px;"><canvas id="chart-0" role="img" aria-label="Event turnout bar chart"></canvas></div>';
-    return panel('Community Events Coordination', eventChart + table(['Event', 'Date', 'Time', 'Venue', 'Participants', 'Action'], events.map((v, i) => [v[0], v[2] + ' 2026', v[3], v[4], v[6], `<a class="table-button" href="404.html" data-event="${i}">View registration</a>`])));
+    return panel('Community Events Coordination', eventChart + table(['Event', 'Date', 'Time', 'Venue', 'Participants', 'Action'], events.map((v, i) => [v[0], v[2] + ' 2026', v[3], v[4], v[6], `<button type="button" class="table-button" data-dashboard-action data-registration="${i}">View registrations</button>`])));
   }
 
-  if (s === 'Reports') return '<div class="feature-cards">' + ['Donation Summary Report', 'Campaign Performance Report', 'Donor Engagement Report', 'Volunteer Log Report', 'Community Event Report', 'Verified Impact Milestone Summary'].map(x => `<div class="feature"><h3>${x}</h3><p>October 2026 · Verified Summary</p><a class="btn outline" href="404.html" data-report="${x}">Download report</a></div>`).join('') + '</div>';
-  if (s === 'Messages') return panel('Community Inbox', [['Ananya Rao', 'Can I receive monthly education updates?', 'Donor inquiry'], ['Rohan Mehta', 'I can help pack at the food drive.', 'Volunteer inquiry'], ['Priya Shah', 'Our team would like to discuss a partnership.', 'Campaign organiser'], ['Arjun Nair', 'Where does the walkathon start?', 'Event question']].map((m, i) => `<div class="activity"><strong>${m[0]}</strong><small>${m[2]} · Community message</small><p>${m[1]}</p><a class="table-button" href="404.html" data-reply="${i}">Reply</a></div>`).join(''));
+  if (s === 'Reports') return '<div class="feature-cards">' + ['Donation Summary Report', 'Campaign Performance Report', 'Donor Engagement Report', 'Volunteer Log Report', 'Community Event Report', 'Verified Impact Milestone Summary'].map(x => `<div class="feature"><h3>${x}</h3><p>October 2026 · Verified Summary</p><button type="button" class="btn outline" data-dashboard-action data-report="${x}">Download report</button></div>`).join('') + '</div>';
+  if (s === 'Messages') return panel('Community Inbox', [['Ananya Rao', 'Can I receive monthly education updates?', 'Donor inquiry'], ['Rohan Mehta', 'I can help pack at the food drive.', 'Volunteer inquiry'], ['Priya Shah', 'Our team would like to discuss a partnership.', 'Campaign organiser'], ['Arjun Nair', 'Where does the walkathon start?', 'Event question']].map((m, i) => `<div class="activity"><strong>${m[0]}</strong><small>${m[2]} · Community message</small><p>${m[1]}</p><button type="button" class="table-button" data-dashboard-action data-reply="${i}">Reply</button></div>`).join(''));
   
   return profile(s === 'Settings');
 }
@@ -354,6 +354,18 @@ function closeMobileNav() {
   }
 }
 
+function setDashboardMenu(open) {
+  const sidebar = $('#dashboard-sidebar');
+  const overlay = $('.dashboard-overlay');
+  const menuBtn = $('.dashboard-menu');
+  sidebar?.classList.toggle('open', open);
+  overlay?.classList.toggle('open', open);
+  document.body.classList.toggle('dashboard-menu-open', open);
+  menuBtn?.setAttribute('aria-expanded', String(open));
+  menuBtn?.setAttribute('aria-label', open ? 'Close dashboard navigation' : 'Open dashboard navigation');
+  menuBtn?.replaceChildren(document.createTextNode(open ? '×' : '☰'));
+}
+
 /* ========================================================
    CLICK EVENT DISPATCHER
 ======================================================== */
@@ -375,6 +387,22 @@ document.addEventListener('click', e => {
   // Close drawer if clicking any nav link
   let navLink = e.target.closest('nav a');
   if (navLink && $('nav')?.classList.contains('open')) closeMobileNav();
+
+  // Dashboard mobile hamburger, close button and overlay
+  const dashboardMenuBtn = e.target.closest('.dashboard-menu');
+  if (dashboardMenuBtn) {
+    setDashboardMenu(!$('#dashboard-sidebar')?.classList.contains('open'));
+    return;
+  }
+  const dashboardCloseBtn = e.target.closest('.dashboard-sidebar-close, .sidebar-close');
+  if (dashboardCloseBtn) {
+    setDashboardMenu(false);
+    return;
+  }
+  if (e.target.closest('.dashboard-overlay')) {
+    setDashboardMenu(false);
+    return;
+  }
 
   // Handle Role Selector Cards (with click bounce and active state)
   let roleCard = e.target.closest('.role-card');
@@ -400,45 +428,44 @@ document.addEventListener('click', e => {
     return;
   }
 
-  const actionEl = e.target.closest('[data-donate], [data-details], [data-receipt], [data-download-receipt], [data-report], [data-status], [data-event], [data-reply]');
-  if (actionEl?.tagName === 'A') e.preventDefault();
-  let b = e.target.closest('button') || actionEl;
-  if (!b) return;
+  const dashboardAction = e.target.closest('[data-dashboard-action], [data-download-receipt]');
+  if (dashboardAction) {
+    e.preventDefault();
+    let b = e.target.closest('button') || dashboardAction;
+    if (b.dataset.donate !== undefined) donate(+b.dataset.donate);
+    if (b.dataset.receipt !== undefined) {
+      const donation = donations[+b.dataset.receipt];
+      if (donation) modal(`<span class="eyebrow">✦ Sample Receipt</span><h2 style="font-size:26px;margin-bottom:8px;">Thank you for your kindness.</h2><p>${donation[0]} · ${donation[2]}</p><h3>${donation[1]}</h3><p>${money(donation[3])} · ${donation[4]}</p><p class="demo-note">Sample demonstration receipt. Not a tax invoice.</p><button class="btn" data-download-receipt="${b.dataset.receipt}">Download sample receipt</button>`);
+    }
+    if (b.dataset.downloadReceipt !== undefined) {
+      const donation = donations[+b.dataset.downloadReceipt];
+      if (donation) download(donation[0] + '-sample', 'STACKLY DEMONSTRATION RECEIPT\nNot a tax receipt or payment confirmation\n' + donation.join('\n'));
+    }
+    if (b.dataset.report) {
+      download('STACKLY-' + b.dataset.report.replaceAll(' ', '-'), 'STACKLY — ' + b.dataset.report + '\nDEMONSTRATION REPORT — October 2026\nFunds raised: ₹4.8 Cr\nCampaigns: 125\nVolunteers: 8,500\nLives supported: 48,000\n\n' + campaigns.map(campaign => campaign[0] + ': ' + money(campaign[3]) + ' / ' + money(campaign[4])).join('\n'));
+      toast('Your demo report is ready.');
+    }
+    if (b.dataset.registration !== undefined) {
+      const event = events[+b.dataset.registration];
+      if (event) modal(`<span class="eyebrow">✦ Registration list</span><h2 style="font-size:26px;margin-bottom:8px;">${event[0]}</h2><p>${event[4]} · ${event[7]}</p>${table(['Name', 'Email', 'Participants'], [['Ananya Rao', 'ananya@example.com', '3'], ['Rohan Mehta', 'rohan@example.com', '2'], ['Priya Shah', 'priya@example.com', '1']])}<p class="demo-note">Demo registration data. No real attendee records are stored.</p>`);
+    }
+    if (b.dataset.clauseStatus !== undefined) {
+      const campaign = campaigns[+b.dataset.clauseStatus];
+      if (campaign) modal(`<span class="eyebrow">✦ Campaign clause · ${campaign[6] === 'Active' ? 'Active' : 'Nearly funded'}</span><h2 style="font-size:26px;margin-bottom:8px;">${campaign[0]}</h2><p><strong>Campaign goal:</strong> ${money(campaign[4])}</p><p><strong>Raised:</strong> ${money(campaign[3])} (${Math.round(campaign[3] / campaign[4] * 100)}% funded)</p><p><strong>Support clause:</strong> Funds will be used for ${campaign[1].toLowerCase()} and reported through verified milestones.</p><p class="demo-note">Clause details are demonstration content.</p><button class="btn" data-dashboard-action data-donate="${b.dataset.clauseStatus}">Support this campaign ♡</button>`);
+    }
+    if (b.dataset.reply !== undefined) modal('<h2 style="font-size:26px;margin-bottom:8px;">Reply to Community Message</h2><form data-form="reply" novalidate><label>Your reply<textarea name="message" rows="5" required placeholder="Write your response..."></textarea><span class="field-error"></span></label><button class="btn" style="width:100%">Save demo reply</button><span class="form-result" aria-live="polite"></span></form>');
+    return;
+  }
 
-  if (b.dataset.donate !== undefined) donate(+b.dataset.donate);
-  if (b.dataset.details !== undefined) {
-    const campaign = campaigns[+b.dataset.details];
-    if (campaign) {
-      modal(`<span class="eyebrow">✦ ${campaign[1]} · ${campaign[6]}</span><h2 style="font-size:26px;margin-bottom:8px;">${campaign[0]}</h2><p>${campaign[8]}</p><h3>What your support helps provide</h3><p>Local partners coordinate resources and share milestones. The budget covers classroom kits, clean water pumps, hot meals, and transparency reporting.</p><p style="font-weight:700;color:var(--green);">${money(campaign[3])} raised of ${money(campaign[4])}</p><p class="demo-note">Demonstration campaign and figures.</p><button class="btn" data-donate="${b.dataset.details}">Donate Now ♡</button>`);
-    }
+  const action404 = e.target.closest('a[href="404.html"]');
+  if (action404) {
+    e.preventDefault();
+    window.location.href = '404.html';
+    return;
   }
-  if (b.dataset.event !== undefined) {
-    const event = events[+b.dataset.event];
-    if (event) {
-      modal(`<span class="eyebrow">✦ ${event[2]} 2026 · ${event[3]}</span><h2 style="font-size:26px;margin-bottom:8px;">${event[0]}</h2><p>${event[4]} · ${event[7]}</p><form data-form="event" novalidate>${field('Full name', 'name', 'text', 'placeholder="Priya Sharma"')}${field('Email address', 'email', 'email', 'placeholder="priya@example.com"')}${field('Participants', 'participants', 'tel', 'value="1" placeholder="1"')}<p class="demo-note">Demo registration. No real booking is made.</p><button class="btn" style="width:100%">Confirm demo registration</button><span class="form-result" aria-live="polite"></span></form>`);
-    }
-  }
-  if (b.dataset.receipt !== undefined) {
-    const donation = donations[+b.dataset.receipt];
-    if (donation) {
-      modal(`<span class="eyebrow">✦ Sample Receipt</span><h2 style="font-size:26px;margin-bottom:8px;">Thank you for your kindness.</h2><p>${donation[0]} · ${donation[2]}</p><h3>${donation[1]}</h3><p>${money(donation[3])} · ${donation[4]}</p><p class="demo-note">Sample demonstration receipt. Not a tax invoice.</p><button class="btn" data-download-receipt="${b.dataset.receipt}">Download sample receipt</button>`);
-    }
-  }
-  if (b.dataset.downloadReceipt !== undefined) {
-    const donation = donations[+b.dataset.downloadReceipt];
-    if (donation) download(donation[0] + '-sample', 'STACKLY DEMONSTRATION RECEIPT\nNot a tax receipt or payment confirmation\n' + donation.join('\n'));
-  }
-  if (b.dataset.report) {
-    download('STACKLY-' + b.dataset.report.replaceAll(' ', '-'), 'STACKLY — ' + b.dataset.report + '\nDEMONSTRATION REPORT — October 2026\nFunds raised: ₹4.8 Cr\nCampaigns: 125\nVolunteers: 8,500\nLives supported: 48,000\n\n' + campaigns.map(campaign => campaign[0] + ': ' + money(campaign[3]) + ' / ' + money(campaign[4])).join('\n'));
-    toast('Your demo report is ready.');
-  }
-  if (b.dataset.status !== undefined) {
-    b.textContent = b.textContent === 'Paused' ? 'Active' : 'Paused';
-    toast('Status updated in this preview.');
-  }
-  if (b.dataset.reply !== undefined) {
-    modal('<h2 style="font-size:26px;margin-bottom:8px;">Reply to Community Message</h2><form data-form="reply" novalidate><label>Your reply<textarea name="message" rows="5" required placeholder="Write your response..."></textarea><span class="field-error"></span></label><button class="btn" style="width:100%">Save demo reply</button><span class="form-result" aria-live="polite"></span></form>');
-  }
+
+  let b = e.target.closest('button');
+  if (!b) return;
 
   if (b.dataset.amount) {
     let amtInput = $('input[name="amount"]');
@@ -464,6 +491,7 @@ document.addEventListener('click', e => {
     setTimeout(() => { location.href = 'signin.html'; }, 600);
   }
   if (b.dataset.section) {
+    setDashboardMenu(false);
     if (window.Chart) $$('canvas').forEach(c => Chart.getChart(c)?.destroy());
     if ($('#dash-heading')) $('#dash-heading').textContent = b.dataset.section;
     if ($('#dash-content')) $('#dash-content').innerHTML = dash(b.dataset.section);
